@@ -41,8 +41,11 @@ self.addEventListener('activate', function (e) {
       })
       // add current cache name to keeplist
       cacheKeeplist.push(CACHE_NAME);
-
+      // not return until all promises are resolved or rejected
       return Promise.all(keyList.map(function (key, i) {
+        // if key cant be found from keyList it will be deleted
+        // will ony return -1 if item is not found in the keyList
+        // if not found, delete it from the cache!
         if (cacheKeeplist.indexOf(key) === -1) {
           console.log('deleting cache : ' + keyList[i]);
           return caches.delete(keyList[i]);
