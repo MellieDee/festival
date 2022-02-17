@@ -51,15 +51,15 @@ const config = {
       name: 'Food Event',
       short_name: 'Foodies',
       description: 'An app that allows you to view upcoming food events.',
-      start_url: '../index.html',
+      start_url: '../index.html', // homepage for PWA rel to manifest file
       background_color: '#01579b',
       theme_color: '#ffffff',
-      fingerprints: false,
-      inject: false,
+      fingerprints: false, //if true, would create UID for the manifest.json file
+      inject: false, //says if there should be aink to themanifest.json in HTML file (harded coded in this app so false)
       icons: [
         {
           src: path.resolve('assets/img/icons/icon-512x512.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
+          sizes: [96, 128, 192, 256, 384, 512],// plugin will take image and create icons of dif sizes based on these numbers
           destination: path.join('assets', 'icons')
         }
       ]
